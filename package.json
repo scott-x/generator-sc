@@ -1,5 +1,5 @@
 {
-  "name": "generator-sc",
+  "name": "sc-react-cli",
   "version": "1.0.1",
   "description": "A cli for react",
   "homepage": "https://github.com/scott-x",
@@ -10,7 +10,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Scott Xiong",
+  "files": [
+    "generators"
+  ],
   "license": "MIT",
   "devDependencies": {
     "chalk": "^2.4.1"
@@ -24,9 +26,19 @@
     "scott",
     "cli"
   ],
-   "author": {
-    "name": "Scott Xiong",
-    "email": "mbp98k@gmail.com",
-    "url": "https://github.com/scott-x/generator-sc"
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/scott-x/generator-sc.git"
   },
+  "keywords": [
+    "cli",
+    "react",
+    "scottxiong"
+  ],
+  "author": "Scott Xiong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scott-x/generator-sc/issues"
+  },
+  "homepage": "https://github.com/scott-x/generator-sc#readme"
 }

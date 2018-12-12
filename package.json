@@ -1,6 +1,6 @@
 {
   "name": "generator-sc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A cli for react",
   "homepage": "https://gitee.com/scott-x/generator-sc",
   "main": "index.js",

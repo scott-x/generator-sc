@@ -6,6 +6,10 @@ yarn-debug.log*
 yarn-error.log*
 
 
+# src
+src
+sc-react
+
 #json
 package-lock.json
 

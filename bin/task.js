@@ -1,7 +1,10 @@
 const fs = require('fs-extra');
 const chalk = require('chalk');
 const projectName=require('../package').name;
-console.log(projectName)
+var path = require('path');
+var inquirer = require('inquirer');
+var basePath= path.resolve(__dirname,'../templates');
+
 exports.run = function(type,name) {
     fs.pathExists('src', (err, exists) => {
         if (!exists) {
@@ -9,61 +12,72 @@ exports.run = function(type,name) {
         } else {
             switch (type) {
                 case 'p':
-                    const pageFile = './src/pages/' + name.toLowerCase() + '/index.js';
-                    const styleFile = './src/pages/' + name.toLowerCase() + '/style.js' 
-
+                    var pageFile = './src/pages/' + name + '/index.js';
+                    var styleFile = './src/pages/' + name + '/style.js'; 
+                    fs.pathExists(pageFile, (err, exists) => {
+                        if (exists) {
+                            console.log(`${chalk.red.bold('Error: The component exists, please try another')}`);
+                        } else {
+                            inquirer
+                              .prompt([
+                                /* Pass your questions in here */
+                                  {
+                                    type: 'rawlist',
+                                    name: 'loadable',
+                                    message: `${chalk.magenta('What\'s your component type, please choose one of the following:')}`,
+                                    choices: ['common:index.js & style.js','complex: including redux','top: including redux & react-loadable'],
+                                    default: 'common:index.js & style.js'
+                                  }
+                               
+                              ])
+                              .then(answers => {
+                                // Use user feedback for... whatever!!
+                                 switch (answers.loadable){
+                                    case 'common:index.js & style.js':
+                                        fs.copy(basePath+'/home/index.js', pageFile, err => {
+                                            if (err) return console.error(err);
+                                            console.log(path.join(basePath,pageFile))
+                                        });
+                                        fs.copy(basePath+'/home/style.js', styleFile, err => {
+                                            if (err) return console.error(err);
+                                            console.log(path.join(basePath,styleFile))
+                                        });
+                                    case  'complex: including redux':
+                                          
+                                 }
+                                 
+                              });
+                        }
+                    });
+                    break;
+                case 'c':
+                       pageFile = './src/common/' + name + '/index.js';
+                       styleFile = './src/common/' + name + '/style.js'; 
                     fs.pathExists(pageFile, (err, exists) => {
                         if (exists) {
                             console.log('The component exists, please try another')
                         } else {
-                            fs.copy('/usr/local/lib/node_modules/'+projectName+'/templates/index.js', pageFile, err => {
+                            fs.copy(basePath+'/home/index.js', pageFile, err => {
                                 if (err) return console.error(err);
                                 console.log(pageFile + '  has been created')
                             });
-                            fs.copy('/usr/local/lib/node_modules/'+projectName+'/templates/style.js', styleFile, err => {
+                            fs.copy(basePath+'/home/style.js', styleFile, err => {
                                 if (err) return console.error(err);
                                 console.log(styleFile + '  has been created')
                             });
                         }
                     });
                     break;
-                case 'c':
-                    const componentFile = './src/components/' + name + '/' + name + '.vue';
-                    const cssFile = './src/components/' + name + '/' + name + '.less';
-                    const jsxFile = './src/components/' + name + '/' + name + '.js';
-                    fs.pathExists(componentFile, (err, exists) => {
-                        if (exists) {
-                            console.log('this file has created')
-                        } else {
-                            fs.copy('/usr/local/lib/node_modules/vue-xu-generate/src/template/component.vue', componentFile, err => {
-                                if (err) return console.error(err);
-                                console.log(componentFile + '  has created')
-                            });
-                            fs.copy('/usr/local/lib/node_modules/vue-xu-generate/src/template/component.less', cssFile, err => {
-                                if (err) return console.error(err);
-                                console.log(cssFile + '  has created')
-                            });
-                            fs.copy('/usr/local/lib/node_modules/vue-xu-generate/src/template/component.js', jsxFile, err => {
-                                if (err) return console.error(err);
-                                console.log(componentFile + '  has created')
-                            })
-                        }
-                    });
-                    break;
                 default:
-                    console.log(chalk.red(`ERROR: uncaught type , you should input like $ xu g page demo` ))
+                    console.log(chalk.red(`ERROR: uncaught type , you should input like $ sc g p demo` ))
                     console.log()
                     console.log('  Examples:')
                     console.log()
-                    console.log(chalk.gray('    # create a new page'))
-                    console.log('    $ xu g page product')
+                    console.log(chalk.gray('    # create a new page inside the pages folder'))
+                    console.log('    $ sc g p product')
                     console.log()
-                    console.log(chalk.gray('    # create a new component'))
-                    console.log('    $ xu g component  product')
-                    console.log()
-                    console.log(chalk.gray('    # create a new store'))
-                    console.log('    $ xu g store  product')
-                    console.log()
+                    console.log(chalk.gray('    # create a new component inside the common folder'))
+                    console.log('    $ sc g c product')
                     break;
             }
         }

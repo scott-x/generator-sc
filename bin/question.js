@@ -1,7 +1,5 @@
 'use strict'
 var inquirer = require('inquirer');
-var chalk = require('chalk');
-var question=
 inquirer
   .prompt([
     /* Pass your questions in here */
@@ -32,3 +30,22 @@ inquirer
   });
 
   exports.question=question;
+
+  'use strict'
+var inquirer = require('inquirer');
+inquirer
+  .prompt([
+    /* Pass your questions in here */
+      {
+        type: 'rawlist',
+        name: 'loadable',
+        message: `${chalk.magenta('What\'s your component type, please choose one of the following:')}`,
+        choices: ['common:index.js & style.js','complex: including redux','top: including redux & react-loadable'],
+        default: 'common:index.js & style.js'
+      }
+   
+  ])
+  .then(answers => {
+    // Use user feedback for... whatever!!
+     require('./task').run(type,answers)
+  });

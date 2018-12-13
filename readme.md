@@ -7,7 +7,7 @@ It's a cli for react.
 
 ### 1. installation
 ```
-npm i sc-react-cli -g
+npm i react-generator-sc
 
 ```
 ### 2. useage

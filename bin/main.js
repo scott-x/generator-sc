@@ -22,7 +22,7 @@ program
 .alias('g')
 .action(function(type){
 	var sc = require('./task');
-    sc.run(type);
+    sc.run(type,name);
 });
 
 program.parse(process.argv)

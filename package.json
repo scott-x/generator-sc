@@ -2,10 +2,10 @@
   "name": "sc-react-cli",
   "version": "1.0.1",
   "description": "A cli for react",
-  "homepage": "https://github.com/scott-x",
+  "homepage": "https://github.com/scott-x/generator-sc#readme",
   "main": "index.js",
   "bin": {
-    "sc": "bin/sc.js"
+    "sc": "./bin/main.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,11 +13,17 @@
   "files": [
     "generators"
   ],
-  "license": "MIT",
-  "devDependencies": {
-    "chalk": "^2.4.1"
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0",
+    "fs-extra": "^4.0.2",
+    "inquirer": "^6.2.1"
   },
-  "repository": "scott-x/generator-sc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scott-x/generator-sc.git"
+  },
   "keywords": [
     "cli react",
     "yeoman-generator",
@@ -26,19 +32,8 @@
     "scott",
     "cli"
   ],
-  "repository": {
-  "type": "git",
-  "url": "https://github.com/scott-x/generator-sc.git"
-  },
-  "keywords": [
-    "cli",
-    "react",
-    "scottxiong"
-  ],
   "author": "Scott Xiong",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/scott-x/generator-sc/issues"
-  },
-  "homepage": "https://github.com/scott-x/generator-sc#readme"
+  }
 }

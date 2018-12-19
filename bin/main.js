@@ -26,8 +26,6 @@ program
 .action(function(){
 	const type=process.argv[3];
 	const componentName=process.argv[4];
-	//
-
 	if (!type) {
 		 console.log(`${chalk.red('Error:')}   ${chalk.red('type can\'t be null')}`);
          console.log(`${chalk.bold.green('useage:')}  ${chalk.magenta.bold('sc g [type] [component-name]')}`);
@@ -52,7 +50,7 @@ if(!program.args.length){
 }
 
 if (process.argv[2]!=='g' && process.argv[2]!=='i') {
-	console.log(`${chalk.red.bold('Error: cmd error, please use g or i instead...')}`)
+	console.log(`${chalk.red.bold('  Error: cmd error, please use g or i instead...')}`)
 }
 
 require('./sc-generator');

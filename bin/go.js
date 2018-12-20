@@ -1,6 +1,8 @@
 const fs = require('fs-extra');
 var sc = require('sc-lyanc');
-var generatorFile = require('./generatorFile');
+var path = require('path');
+var inquirer = require('inquirer');
+var chalk = require('chalk');
 var init = require('./init');
 
 var files = init.initPath(3), name='haha';
@@ -14,32 +16,65 @@ function getRegx(string){
     	return /Home/g
     }
 }
-var p;
-var regx=getRegx(p[0].start);
+// var p,regx;
+// 
 
 exports.run=function(type,name){
    fs.pathExists('src', (err, exists) => {
         switch (type) {
         	case 'p':
-              = init.fetchFilePath(type,'hahx',files);
+             var checkFile = './src/pages/' + name + '/index.js';
+             fs.pathExists(pageFile, (err, exists) => {
+             	if (exists) {
+             		console.log(`${chalk.red.bold('Error: The component exists, please try another')}`);
+             	}else{
+             		inquirer
+             		  .prompt([
+             		    /* Pass your questions in here */
+             		      {
+             		        type: 'rawlist',
+             		        name: 'loadable',
+             		        message: `${chalk.magenta('What\'s your component type, please choose one of the following:')}`,
+             		        choices: ['common:index.js & style.js','complex: including redux','top: including redux & react-loadable'],
+             		        default: 'common:index.js & style.js'
+             		      }
+             		   
+             		  ])
+             		  .then(answers => {
+             		    // Use user feedback for... whatever!!
+             		     switch (answers.loadable){
+             		        case 'common:index.js & style.js':
+             		            p = init.initPath(1);
+             		            regx=getRegx(p[0].start);
+             		            gen(regx,name)
+             		        case  'complex: including redux':
+             		              
+             		     }
+             		     
+             		  });
+             	}
+             })
         }
    })
 }
-p.forEach(item=>{
-	fs.copy(item.start,item.end)
-	.then(() => {
-      sc.run(function* (resume){
-		var contents = yield fs.readFile(item.end, 'utf8', resume);
-		var updates = contents.replace(regx,newTemplateName);
-		yield fs.writeFile(item.end,updates,resume)
-		console.log("done");
-      })
-	  console.log('success!')
-	})
-	.catch(err => {
-	  console.error(err)
-	})
-})
+
+function gen(regx,newTemplateName){
+   p.forEach(item=>{
+	   	fs.copy(item.start,item.end)
+	   	.then(() => {
+	         sc.run(function* (resume){
+	   		var contents = yield fs.readFile(item.end, 'utf8', resume);
+	   		var updates = contents.replace(regx,newTemplateName);
+	   		yield fs.writeFile(item.end,updates,resume)
+	   		console.log("done");
+	         })
+	   	  console.log('success!')
+	   	})
+	   	.catch(err => {
+	   	  console.error(err)
+	   	})
+   })
+}
 
 function run(type,name) {
     fs.pathExists('src', (err, exists) => {

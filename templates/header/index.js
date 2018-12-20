@@ -1,11 +1,14 @@
 import React, { PureComponent } from 'react';
+import {
+	HeaderWrapper
+} from './style';
 
 class Header extends PureComponent {
   render() {
     return (
-     <div>Header: 
-      <i className='iconfont'>&#xe6cf;</i>
-     </div>
+     <HeaderWrapper>
+        I am Header
+     </HeaderWrapper>
     );
   }
 }

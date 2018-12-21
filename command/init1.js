@@ -9,7 +9,7 @@ module.exports = (appName) => {
         if (exists) {
            console.log(`${chalk.red.bold('   Error: The project')} ${chalk.cyan.bold(appName)} ${chalk.red.bold('exists, please try another...')}`);
         }else{
-           fs.copy('templates/myApp', './'+appName, err => {
+           fs.copy(path.resolve(__dirname,'../templates/myApp'), './'+appName, err => {
            if (err) return console.error(err)
                const time1=new Date().getTime();
                console.log(`  ${chalk.cyan.bold(' The project is is being initialized...')}`)

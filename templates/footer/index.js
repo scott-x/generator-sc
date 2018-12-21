@@ -6,7 +6,7 @@ import {
 class Footer extends PureComponent {
   render() {
     return (
-     <FooterWrapper>Footer</FooterWrapper>
+     <FooterWrapper>I am Footer</FooterWrapper>
     );
   }
 }

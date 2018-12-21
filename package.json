@@ -5,10 +5,10 @@
   "homepage": "https://github.com/scott-x/generator-sc#readme",
   "main": "index.js",
   "bin": {
-    "sc": "./bin/main.js"
+    "sc": "./bin/index.js"
   },
   "scripts": {
-    "start": "node ./bin/main.js"
+    "start": "node index.js"
   },
   "files": [
     "bin",

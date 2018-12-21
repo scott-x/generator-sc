@@ -8,7 +8,10 @@ class Detail extends PureComponent {
 	render() {
 		return (
 			<DetailWrapper>
-				<Header>{this.props.title}</Header>
+				<Header>
+				    I am Header
+				   {this.props.title}
+				 </Header>
 				<Content 
 					dangerouslySetInnerHTML={{__html: this.props.content}}
 				/>

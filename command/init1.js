@@ -15,7 +15,7 @@ module.exports = (appName) => {
                const time1=new Date().getTime();
                console.log(`  ${chalk.cyan.bold(' The project is is being initialized...')}`);
                //remove .npmignore and change to .gitignore
-               const destination='./'+appName+'.gitignore';
+               const destination='./'+appName+'/.gitignore';
                const startPath=path.resolve(__dirname,'../templates/gitignore');
                fs.copy(startPath,destination,err=>{
                  if (err) {

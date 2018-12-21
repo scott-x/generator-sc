@@ -80,7 +80,7 @@ function gen(regx,newTemplateName){
       	   		var updates = contents.replace(regx,newTemplateName);
       	   		yield fs.writeFile(item.end,updates,resume);
 	         })
-           console.log(`${chalk.green('   '+path.resolve(__dirname,'../'+item.end))}`);
+           console.log(`${chalk.green('   '+item.end)} was created`);
 	   	})
 	   	.catch(err => {
 	   	     console.error(`${chalk.red('Something is wrong, please re-try')}`);

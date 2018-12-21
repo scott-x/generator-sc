@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const HomeWrapper=styled.div`
+export const FooterWrapper=styled.div`
    background:red;
 `

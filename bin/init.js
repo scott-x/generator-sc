@@ -3,8 +3,8 @@ module.exports={
 		switch(type){
 	       	case 1:
 	       		 return [
-	       		 	 {start:'templates/home/index.js',end:''},
-	       	         {start:'templates/home/style.js',end:''}
+	       		 	 {start:'templates/footer/index.js',end:''},
+	       	         {start:'templates/footer/style.js',end:''}
 	       		 ]
 	       	case 2:
 	       	     return [
@@ -36,13 +36,13 @@ module.exports={
 		   switch(type){
 		   	case 'c':
 		   	  originalPath.forEach(item=>{
-		   	  	item.end='src/common/'+Lname+item.start.substring(14)
+		   	  	item.end='src/common/'+Lname+item.start.substring(16);
 		   	  })
 		   	  return originalPath;
 		   
 		   	case 'p':
 		   	  originalPath.forEach(item=>{
-		   	  	item.end='src/pages/'+Lname+item.start.substring(14)
+		   	  	item.end='src/pages/'+Lname+item.start.substring(16);
 		   	  })
 		      return originalPath;
 		   }

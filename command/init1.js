@@ -24,7 +24,7 @@ module.exports = (appName) => {
                     const time2=new Date().getTime();
                     const times=time2-time1;
                     console.log(`  ${chalk.cyan.bold(' The initialization is finalized, and takes')} ${chalk.green.bold(times)} ${chalk.cyan.bold('ms in total.')}`);
-                    console.log(`  ${chalk.red.bold(' cd '+appName+' && npm install')}`);
+                    console.log(`  ${chalk.red.bold(' cd '+appName+' && yarn install')}`);
                  }
                })
            }) 

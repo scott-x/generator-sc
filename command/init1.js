@@ -13,19 +13,20 @@ module.exports = (appName) => {
            fs.copy(path.resolve(__dirname,'../templates/myApp'), './'+appName, err => {
            if (err) return console.error(err)
                const time1=new Date().getTime();
-               console.log(`  ${chalk.cyan.bold(' The project is is being initialized...')}`)
-               const time2=new Date().getTime();
-               const times=time2-time1;
-               console.log(`  ${chalk.cyan.bold(' The initialization is finalized, and takes')} ${chalk.green.bold(times)} ${chalk.cyan.bold('ms in total.')}`)
-               console.log(`  ${chalk.red.bold(' cd '+appName+' && npm install')}`)
+               console.log(`  ${chalk.cyan.bold(' The project is is being initialized...')}`);
                //remove .npmignore and change to .gitignore
-               const destination=path.resolve(__dirname,appName+'.npmignore');
-               fs.remove(destination).then(() => {
-                  console.log('.npmignore is removed!')
-                })
-                .catch(err => {
-                  console.error(err)
-                })
+               const destination='./'+appName+'.gitignore';
+               const startPath=path.resolve(__dirname,'../templates/gitignore');
+               fs.copy(startPath,destination,err=>{
+                 if (err) {
+                   console.log(err);
+                 }else{
+                    const time2=new Date().getTime();
+                    const times=time2-time1;
+                    console.log(`  ${chalk.cyan.bold(' The initialization is finalized, and takes')} ${chalk.green.bold(times)} ${chalk.cyan.bold('ms in total.')}`);
+                    console.log(`  ${chalk.red.bold(' cd '+appName+' && npm install')}`);
+                 }
+               })
            }) 
         }
     })

@@ -27,5 +27,11 @@ npm run start
 ## contact me
 If you have any issue in using this cli, please write to me, will reply to you when available. My email is mbp98k@gmail.com
 
+## issue
+1. fs.copy(), copy and replace in batch
+2. define projectFolder
+3. get arguments in terminal
+4. .npmigore to .gitignore
+
 License
 MIT © [Scott Xiong](https://github.com/scott-x)

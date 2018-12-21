@@ -63,10 +63,8 @@ exports.run=function(type,name){
                         p=init.fetchFilePath(type,name,p);
                         regx=getRegx(p[0].start);
                         gen(regx,newTemplateName);
-                        time2 = new Date().getTime();
-                        time3 = time2-time1;
-                        console.log(`${chalk.red('It takes'+time3+' ms in total')}`);   
-                        
+                        // console.log(`${chalk.red('It takes'+time3+' ms in total')}`); 
+                        console.log(`${chalk.magenta.bold("Generated "+p.length+' files...')}`);
                       });
                 }
             })
@@ -75,7 +73,6 @@ exports.run=function(type,name){
 }
 
 function gen(regx,newTemplateName){
-   time1 = new Date().getTime();
    p.forEach(item=>{
 	   	fs.copy(item.start,item.end)
 	   	.then(() => {
@@ -83,18 +80,12 @@ function gen(regx,newTemplateName){
       	   		var contents = yield fs.readFile(item.end, 'utf8', resume);
       	   		var updates = contents.replace(regx,newTemplateName);
       	   		yield fs.writeFile(item.end,updates,resume);
-      	   		console.log(`${chalk.green(path.resolve(__dirname,'../'+item.end))}`);
 	         })
-	   	     console.log('success!')
+           console.log(`${chalk.green(path.resolve(__dirname,'../'+item.end))}`);
+	   	     // console.log('success!')
 	   	})
 	   	.catch(err => {
 	   	     console.error(`${chalk.red('Something is wrong, please re-try')}`);
 	   	})
    })
-}
-
-function* getTime3(){
-  var time2 = yield new Date().getTime();
-  yield  gen(regx,newTemplateName);
-  console.log(`${chalk.red('It takes'+time3+' ms in total')}`);   
 }

@@ -12,7 +12,8 @@ npm i react-generator-sc -g
 ```
 ### 2. init project
 ```
-sc i 
+# default myApp
+sc i [yourProjectName]
 ```
 ## command
 ```

@@ -21,7 +21,7 @@ exports.run=function(type,name){
    var folderName = name.toLowerCase(),newTemplateName=name.substring(0,1).toUpperCase()+name.substring(1);
    fs.pathExists('src', (err, exists) => {
         if (!exists) {
-            console.log(`${chalk.red.bold(' Error: Please move to your react-project folder, there should be a folder called src')}`);
+            console.log(`${chalk.red.bold('   Error: Please move to your react-project folder, there should be a folder called src')}`);
         } else {
             switch (type) {
             	case 'p':

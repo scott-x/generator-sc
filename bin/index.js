@@ -14,7 +14,11 @@ program
     .description('init your react project')
     .alias('i')
     .action(() => {
-        require('../command/init')()
+    	let appName=process.argv[3];
+    	if (!appName) {
+    		appName = 'myApp'
+    	}
+        require('../command/init1')(appName)
     })
 
 program

@@ -1,6 +1,6 @@
 {
   "name": "react-generator-sc",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A cli for react",
   "homepage": "https://github.com/scott-x/generator-sc#readme",
   "main": "index.js",

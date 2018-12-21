@@ -26,8 +26,10 @@ exports.run=function(type,name){
             switch (type) {
             	case 'p':
                  checkFile = './src/pages/' + folderName + '/index.js';
+                 break;
                 case 'c':
                  checkFile = './src/common/' + folderName + '/index.js';
+                 break;
             }
             fs.pathExists(checkFile, (err, exists) => {
                 if (exists) {
@@ -64,7 +66,7 @@ exports.run=function(type,name){
                         time2 = new Date().getTime();
                         time3 = time2-time1;
                         console.log(`${chalk.red('It takes'+time3+' ms in total')}`);   
-                        function 
+                        
                       });
                 }
             })
@@ -81,7 +83,7 @@ function gen(regx,newTemplateName){
       	   		var contents = yield fs.readFile(item.end, 'utf8', resume);
       	   		var updates = contents.replace(regx,newTemplateName);
       	   		yield fs.writeFile(item.end,updates,resume);
-      	   		console.log(`${chalk.green(path.resolve(__dirname,+'../'+item.end))}`);
+      	   		console.log(`${chalk.green(path.resolve(__dirname,'../'+item.end))}`);
 	         })
 	   	     console.log('success!')
 	   	})

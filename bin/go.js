@@ -73,7 +73,7 @@ exports.run=function(type,name){
 
 function gen(regx,newTemplateName){
    p.forEach(item=>{
-	   	fs.copy(item.start,item.end)
+	   	fs.copy(path.resolve(__dirname,'../'+item.start),item.end)
 	   	.then(() => {
 	         sc.run(function* (resume){
       	   		var contents = yield fs.readFile(item.end, 'utf8', resume);

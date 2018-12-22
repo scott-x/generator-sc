@@ -1,8 +1,8 @@
-# sc-react-cli
+# react-generator-sc
 
 ## introduction
-1. **`sc-react-cli`**: It's a cli for `react`, similar like [vue-cli](https://github.com/vuejs/vue-cli) and more like [Angular cli](https://github.com/ng-packagr/ng-packagr), since it can not only build project itselft but also build components. So we can call it as `a full-stack cli`.
-2. **`templates`**: The templates are base on [create-react-app](https://github.com/facebook/create-react-app), if you hava any good idea, feel free to reach out to me.
+1. **`react-generator-sc`**: It's a cli for `react`, similar like [vue-cli](https://github.com/vuejs/vue-cli) and more like [Angular cli](https://github.com/ng-packagr/ng-packagr), since it can not only build project itselft but also build components. So we can call it as `a full-stack cli`.
+2. **`templates`**: The templates are base on [create-react-app](https://github.com/facebook/create-react-app), if you hava any good idea about templates, feel free to reach out to me.
 
 ## how to use?
 
@@ -13,13 +13,13 @@ npm i react-generator-sc -g
 ```
 ### 2. init project
 ```
-# default myApp
 sc i [yourProjectName]
+# if [yourProjectName] is null, and it will create a project called myApp by default.
 ```
-## command
+## other commands
 ```
-sc g c yourComponentName
-sc g p yourPageName
+sc g c [yourComponentName]
+sc g p [yourPageName]
 ```
 ## Test
 ```
@@ -32,11 +32,11 @@ npm run start
 ## contact me
 If you have any issue in using this cli, please write to me, will reply to you when available. My email is mbp98k@gmail.com
 
-## issue
+## some issue you may meet in devoloping cli
 1. fs.copy(), copy and replace in batch
-2. define projectFolder
-3. get arguments in terminal
-4. .npmigore to .gitignore
+2. define projectFolder and apply to your project
+3. fetch arguments in terminal
+4. the way to change .npmigore to .gitignore
 
 License
 MIT © [Scott Xiong](https://github.com/scott-x)

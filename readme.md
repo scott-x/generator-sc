@@ -2,7 +2,7 @@
 
 ## introduction
 1. **`sc-react-cli`**: It's a cli for `react`, similar like [vue-cli](https://github.com/vuejs/vue-cli) and more like [Angular cli](https://github.com/ng-packagr/ng-packagr), since it can not only build project itselft but also build components. So we can call it as `a full-stack cli`.
-2. **`templates`**: The templates base on [create-react-app](https://github.com/facebook/create-react-app)
+2. **`templates`**: The templates are base on [create-react-app](https://github.com/facebook/create-react-app), if you hava any good idea, feel free to reach out to me.
 
 ## how to use?
 

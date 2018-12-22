@@ -1,7 +1,7 @@
 # sc-react-cli
 
 ## introduction
-It's a cli for react.
+It's a cli for react, similar like [vue-cli](https://github.com/vuejs/vue-cli) and more like [Angular cli](https://github.com/ng-packagr/ng-packagr), since it can not only build project but also build components as you wish.
 
 ## how to use?
 

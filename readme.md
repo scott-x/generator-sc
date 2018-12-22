@@ -25,6 +25,8 @@ sc g p yourPageName
 npm run start
 ```
 ![](./imgs/ref.png)  <br/>
+![](./imgs/3.png)  <br/>
+![](./imgs/2.png)  <br/>
 
 ## contact me
 If you have any issue in using this cli, please write to me, will reply to you when available. My email is mbp98k@gmail.com

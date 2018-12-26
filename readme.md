@@ -38,5 +38,8 @@ If you have any issue in using this cli, please write to me, will reply to you w
 3. fetch arguments in terminal
 4. the way to change .npmigore to .gitignore
 
+## updates
+- add `__TEST__` folder in src and `homepage` property in package.json  12/26/2018
+
 License
 MIT © [Scott Xiong](https://github.com/scott-x)

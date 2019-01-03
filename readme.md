@@ -12,34 +12,32 @@ npm i react-generator-sc -g
 
 ```
 ### 2. init project
+if [yourProjectName] is null, when you run `sc i`, it will create a project called myApp by default.
 ```
 sc i [yourProjectName]
-# if [yourProjectName] is null, and it will create a project called myApp by default.
 ```
 ## other commands
 ```
 sc g c [yourComponentName]
 sc g p [yourPageName]
 ```
-## Test
+## test
 ```
 npm run start
 ```
-![](./imgs/ref.png)  <br/>
-![](./imgs/3.png)  <br/>
-![](./imgs/2.png)  <br/>
 
-## contact me
-If you have any issue in using this cli, please write to me, will reply to you when available. My email is mbp98k@gmail.com
-
-## some issue you may meet in devoloping cli
+## Here're some issue you may meet in devoloping cli
 1. fs.copy(), copy and replace in batch
 2. define projectFolder and apply to your project
 3. fetch arguments in terminal
 4. the way to change .npmigore to .gitignore
 
 ## updates
-- add `__TEST__` folder in src and `homepage` property in package.json  12/26/2018
+1. Add `__TEST__` folder in src and `homepage` property in package.json       12/26/2018
+2. Add mockup-server and auto-created resful api, and all the mockup data will be stored in file `db.json`. You just need to run `yarn start` and get the new features.      01/03/2019
+
+## contact me
+If you have any issue in using this cli, please write to me directly, will reply to you when available. My email is mbp98k@gmail.com
 
 License
 MIT © [Scott Xiong](https://github.com/scott-x)

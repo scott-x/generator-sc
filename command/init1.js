@@ -21,6 +21,11 @@ module.exports = (appName) => {
                  if (err) {
                    console.log(err);
                  }else{
+                    fs.remove('./'+appName+'/.npmignore', err => {
+                      if (err) return console.error(err)
+                        //remove .npmignore
+                    })
+
                     const time2=new Date().getTime();
                     const times=time2-time1;
                     console.log(`  ${chalk.cyan.bold(' The initialization is finalized, and takes')} ${chalk.green.bold(times)} ${chalk.cyan.bold('ms in total.')}`);

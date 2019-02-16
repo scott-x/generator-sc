@@ -1,17 +1,17 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent,Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { DetailWrapper, Header, Content } from './style';
+import { DetailWrapper, Content } from './style';
 import { actionCreators } from './store';
 
 class Detail extends PureComponent {
 	render() {
 		return (
 			<DetailWrapper>
-				<Header>
+				<Fragment>
 				    I am Header
 				   {this.props.title}
-				 </Header>
+				 </Fragment>
 				<Content 
 					dangerouslySetInnerHTML={{__html: this.props.content}}
 				/>
